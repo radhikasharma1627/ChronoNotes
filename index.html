@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChronoNotes</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2921/2921222.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Name Input -->
+  <div class="name-input" id="nameInput">
+    <h1>Welcome! Please enter your name</h1>
+    <input type="text" id="userName" placeholder="Enter your name...">
+    <button onclick="submitName()">Continue</button>
+  </div>
+
+  <!-- Menu -->
+  <div class="menu" id="menu" style="display: none;">
+    <h1 id="greeting"></h1>
+    <button onclick="openSection('todo')">📜 To-Do List</button>
+    <button onclick="openSection('notepad')">📝 Notepad</button>
+  </div>
+
+  <!-- To-Do Section -->
+  <div class="section" id="todoSection">
+    <div class="section-header">
+      <h1>📜 To-Do</h1>
+      <button class="home-btn" onclick="backToMenu()">🏠 Home</button>
+    </div>
+    <div class="input-row">
+      <input type="text" id="taskInput" placeholder="Write your task...">
+      <button class="small" onclick="addTask()">Add</button>
+    </div>
+    <ul id="taskList"></ul>
+    <p id="taskCounter">0 tasks left, 0 total</p>
+    <button class="small" onclick="clearCompleted()">Clear Completed</button>
+    <button class="small" onclick="clearAll()">Clear All</button>
+  </div>
+
+  <!-- Notepad Section -->
+  <div class="section" id="notepadSection">
+    <div class="section-header">
+      <h1>📝 Notepad</h1>
+      <button class="home-btn" onclick="backToMenu()">🏠 Home</button>
+    </div>
+    <button class="small" onclick="newNote()">➕ New Note</button>
+    <div id="noteListContainer">
+      <ul id="noteList"></ul>
+    </div>
+    <div id="noteEditor" style="display:none; margin-top: 10px;">
+      <input type="text" id="noteTitle" placeholder="Enter note title...">
+      <input type="date" id="noteDate">
+      <textarea id="notepadArea" placeholder="Write your notes here..."></textarea>
+      <div>
+        <button class="small" onclick="saveNote()">💾 Save Note</button>
+        <button class="small" onclick="deleteNote()">🗑 Delete Note</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
